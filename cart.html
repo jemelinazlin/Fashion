@@ -31,9 +31,13 @@
 
 <div class="icons">
 
-<a href="wishlist.html">♡</a>
+<a href="wishlist.html">
+♡ <span id="wishCount">0</span>
+</a>
 
-<a href="cart.html">🛒</a>
+<a href="cart.html">
+🛒 <span id="cartCount">0</span>
+</a>
 
 </div>
 
@@ -43,43 +47,9 @@
 
 <h2>Shopping Cart</h2>
 
-<div class="product-box">
+<div class="product-box" id="cartItems">
 
-<div class="product">
-
-<img src="">
-
-<h3>Black Hoodie</h3>
-
-<p>$35</p>
-
-<button>Remove</button>
-
-</div>
-
-<div class="product">
-
-<img src="">
-
-<h3>White T-Shirt</h3>
-
-<p>$20</p>
-
-<button>Remove</button>
-
-</div>
-
-<div class="product">
-
-<img src="">
-
-<h3>Cargo Pants</h3>
-
-<p>$40</p>
-
-<button>Remove</button>
-
-</div>
+<!-- Products added by JavaScript -->
 
 </div>
 
@@ -89,18 +59,34 @@
 
 <div>
 
-<h2>Total: $95</h2>
+<h2 id="total">
+
+Total: $0
+
+</h2>
 
 <br>
 
 <button onclick="continueShopping()">
+
 Continue Shopping
+
 </button>
 
 <br><br>
 
 <button onclick="checkout()">
+
 Checkout
+
+</button>
+
+<br><br>
+
+<button onclick="clearCart()">
+
+Clear Cart
+
 </button>
 
 </div>

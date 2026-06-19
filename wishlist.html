@@ -31,9 +31,13 @@
 
 <div class="icons">
 
-<a href="wishlist.html">♡</a>
+<a href="wishlist.html">
+♡ <span id="wishCount">0</span>
+</a>
 
-<a href="cart.html">🛒</a>
+<a href="cart.html">
+🛒 <span id="cartCount">0</span>
+</a>
 
 </div>
 
@@ -43,61 +47,9 @@
 
 <h2>My Wishlist</h2>
 
-<div class="product-box">
+<div class="product-box" id="wishItems">
 
-<div class="product">
-
-<img src="" alt="Product Image">
-
-<h3>Black Hoodie</h3>
-
-<p>$35</p>
-
-<button onclick="moveCart()">
-Add to Cart
-</button>
-
-<button onclick="removeWish()">
-Remove
-</button>
-
-</div>
-
-<div class="product">
-
-<img src="" alt="Product Image">
-
-<h3>Denim Jacket</h3>
-
-<p>$50</p>
-
-<button onclick="moveCart()">
-Add to Cart
-</button>
-
-<button onclick="removeWish()">
-Remove
-</button>
-
-</div>
-
-<div class="product">
-
-<img src="" alt="Product Image">
-
-<h3>Running Shoes</h3>
-
-<p>$60</p>
-
-<button onclick="moveCart()">
-Add to Cart
-</button>
-
-<button onclick="removeWish()">
-Remove
-</button>
-
-</div>
+<!-- Wishlist items loaded by JavaScript -->
 
 </div>
 
@@ -110,8 +62,18 @@ Remove
 <h2>Your Favourite Styles</h2>
 
 <p>
+
 Save your favourite items and shop them later.
+
 </p>
+
+<br>
+
+<button onclick="clearWishlist()">
+
+Clear Wishlist
+
+</button>
 
 </div>
 
@@ -124,7 +86,9 @@ Save your favourite items and shop them later.
 <p>Fashion for everyone.</p>
 
 <p>© 2026 ZURI Clothing</p>
-<p>twitter</p>
+
+<p>Twitter</p>
+
 </footer>
 
 <script src="script.js"></script>
