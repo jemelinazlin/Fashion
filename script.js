@@ -3,12 +3,6 @@ function shopNow() {
     window.location.href = "products.html";
 }
 
-// WELCOME (wait until DOM is ready)
-window.addEventListener("DOMContentLoaded", function () {
-    alert("Welcome to ZURI Clothing!");
-    updateCounters();
-});
-
 // SEARCH
 document.addEventListener("DOMContentLoaded", function () {
     let search = document.getElementById("search");
