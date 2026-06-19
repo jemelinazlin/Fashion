@@ -300,3 +300,23 @@ header{
 }
 
 }
+.features button{
+
+padding:15px 30px;
+border:none;
+background:#111;
+color:white;
+cursor:pointer;
+border-radius:5px;
+margin:10px;
+
+}
+
+.features button:hover{
+
+background:#444;
+
+}
+.product p:nth-of-type(2){
+    color:gold;
+}

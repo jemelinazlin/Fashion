@@ -112,3 +112,14 @@ alert("Explore our "+card.innerText+" collection!");
 });
 
 });
+function continueShopping(){
+
+window.location.href="products.html";
+
+}
+
+function checkout(){
+
+alert("Thank you for shopping with ZURI!");
+
+}
