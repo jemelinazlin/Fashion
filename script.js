@@ -134,5 +134,10 @@ function removeWish(){
 alert("Item removed from wishlist!");
 
 }
+function sendMessage(){
+
+alert("Thank you for contacting ZURI! We will get back to you soon.");
+
+}
 
 
