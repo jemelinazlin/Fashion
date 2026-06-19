@@ -123,3 +123,16 @@ function checkout(){
 alert("Thank you for shopping with ZURI!");
 
 }
+function moveCart(){
+
+alert("Item added to cart!");
+
+}
+
+function removeWish(){
+
+alert("Item removed from wishlist!");
+
+}
+
+
