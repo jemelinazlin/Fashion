@@ -581,3 +581,97 @@ color:#aaa;
     object-fit:cover;
     border-radius:8px;
 }
+.footer-newsletter{
+    text-align:center;
+    margin:30px 0;
+}
+
+.footer-newsletter input{
+    width:300px;
+    max-width:90%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    margin:10px;
+}
+
+.footer-newsletter button{
+    padding:10px 20px;
+    border:none;
+    background:#000;
+    color:#fff;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.footer-newsletter button:hover{
+    background:#444;
+}
+
+.footer-section a{
+    text-decoration:none;
+    color:white;
+    line-height:2;
+}
+
+.footer-section a:hover{
+    color:#d4af37;
+}
+
+.footer-section i{
+    margin-right:8px;
+}
+/* Dark Mode */
+
+body.dark-mode{
+    background:#121212;
+    color:white;
+}
+
+body.dark-mode header{
+    background:#1d1d1d;
+}
+
+body.dark-mode nav a{
+    color:white;
+}
+
+body.dark-mode .card,
+body.dark-mode .product,
+body.dark-mode .footer-section,
+body.dark-mode .newsletter,
+body.dark-mode .categories,
+body.dark-mode .features,
+body.dark-mode .products{
+    background:#1f1f1f;
+    color:white;
+}
+
+body.dark-mode footer{
+    background:#000;
+}
+
+body.dark-mode input,
+body.dark-mode textarea{
+    background:#333;
+    color:white;
+    border:1px solid #555;
+}
+
+body.dark-mode button{
+    background:#444;
+    color:white;
+}
+
+body.dark-mode button:hover{
+    background:#666;
+}
+
+#darkModeBtn{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:20px;
+    margin-right:15px;
+}
