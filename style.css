@@ -557,4 +557,21 @@ color:#aaa;
     box-shadow:0 0 8px rgba(0,0,0,.15);
 
 }
+.hero{
+    height:80vh;
+    background:url("images/hero-banner.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    padding-left:8%;
+}
+.card-img-top{
+    height:300px;
+    object-fit:cover;
+} 
+.category-img{
+    height:220px;
+    object-fit:cover;
+}
 
