@@ -224,44 +224,48 @@ function sendMessage() {
 
 }
 
-function login(){
+function login() {
 
-    let email = document.getElementById("email").value;
+    let email = document.getElementById("email").value.trim();
 
     let password = document.getElementById("password").value;
 
     let user = JSON.parse(localStorage.getItem("user"));
 
-    if(
-        user &&
-        email === user.email &&
-        password === user.password
-    ){
+    if (!user) {
 
-        localStorage.setItem("loggedIn","true");
+        alert("No account found. Please sign up first.");
+
+        window.location.href = "signup.html";
+
+        return;
+
+    }
+
+    if (email === user.email && password === user.password) {
+
+        localStorage.setItem("loggedIn", "true");
 
         alert("Login successful!");
 
         window.location.href = "cart.html";
 
-    }
-
-    else{
+    } else {
 
         alert("Invalid email or password.");
 
     }
 
 }
-function signup(){
+function signup() {
 
-    let name = document.getElementById("name").value;
+    let name = document.getElementById("name").value.trim();
 
-    let email = document.getElementById("email").value;
+    let email = document.getElementById("email").value.trim();
 
     let password = document.getElementById("password").value;
 
-    if(name === "" || email === "" || password === ""){
+    if (name === "" || email === "" || password === "") {
 
         alert("Please fill in all fields.");
 
@@ -270,13 +274,9 @@ function signup(){
     }
 
     let user = {
-
         name: name,
-
         email: email,
-
         password: password
-
     };
 
     localStorage.setItem("user", JSON.stringify(user));
@@ -286,5 +286,3 @@ function signup(){
     window.location.href = "login.html";
 
 }
-
-
