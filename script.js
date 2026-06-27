@@ -187,16 +187,18 @@ function continueShopping() {
 
 function checkout() {
 
-    let loggedIn = localStorage.getItem("loggedIn");
-
-    if (loggedIn !== "true") {
+    if (localStorage.getItem("loggedIn") !== "true") {
 
         alert("Please login before proceeding to checkout.");
-
         window.location.href = "login.html";
-
         return;
+    }
 
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
     }
 
     alert("Order placed successfully! Thank you for shopping with ZURI.");
@@ -205,8 +207,7 @@ function checkout() {
 
     updateCounters();
 
-    location.reload();
-
+    window.location.reload();
 }
 
 function clearCart() {
@@ -377,4 +378,27 @@ function toggleDarkMode() {
 
     }
 
+}
+function logout() {
+
+    localStorage.removeItem("loggedIn");
+
+    let welcome = document.getElementById("welcomeUser");
+
+    if (welcome) {
+        welcome.innerHTML =
+        '<a href="login.html">Login</a> | <a href="signup.html">Sign Up</a>';
+    }
+
+    let logoutBtn = document.getElementById("logoutLink");
+
+    if (logoutBtn) {
+        logoutBtn.style.display = "none";
+    }
+
+    updateCounters();
+
+    alert("You have been logged out successfully.");
+
+    window.location.href = "index.html";
 }
