@@ -286,3 +286,16 @@ function signup() {
     window.location.href = "login.html";
 
 }
+document.addEventListener("DOMContentLoaded", function () {
+
+    let user = JSON.parse(localStorage.getItem("user"));
+    let loggedIn = localStorage.getItem("loggedIn");
+    let welcome = document.getElementById("welcomeUser");
+
+    if (welcome && user && loggedIn === "true") {
+
+        welcome.innerHTML = "Hi, " + user.name;
+
+    }
+
+});
