@@ -186,9 +186,27 @@ function continueShopping() {
 }
 
 function checkout() {
-    alert("Thank you for shopping with ZURI!");
+
+    let loggedIn = localStorage.getItem("loggedIn");
+
+    if (loggedIn !== "true") {
+
+        alert("Please login before proceeding to checkout.");
+
+        window.location.href = "login.html";
+
+        return;
+
+    }
+
+    alert("Order placed successfully! Thank you for shopping with ZURI.");
+
     localStorage.removeItem("cart");
+
+    updateCounters();
+
     location.reload();
+
 }
 
 function clearCart() {
