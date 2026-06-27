@@ -1,4 +1,15 @@
 // SHOP NOW
+// SWEETALERT HELPER
+function showAlert(title, text, icon) {
+    Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        confirmButtonColor: "#000",
+        background: "#fff",
+        color: "#333"
+    });
+}
 function shopNow() {
     window.location.href = "products.html";
 }
@@ -63,7 +74,7 @@ function addCart(name, price) {
 
     updateCounters();
 
-    alert(name + " added to cart!");
+    showAlert("Added to Cart!", name + " has been added to your cart.", "success");
 }
 
 // ADD TO WISHLIST
@@ -76,7 +87,7 @@ function addWish(name, price) {
 
     updateCounters();
 
-    alert(name + " added to wishlist!");
+    showAlert("Added to Wishlist!", name + " has been added to your wishlist.", "success");
 }
 
 // SHOW CART
