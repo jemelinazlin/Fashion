@@ -507,4 +507,25 @@ color:#aaa;
 }
 
 }
+#welcomeUser{
+
+    font-weight:600;
+    color:#111;
+    margin-right:15px;
+
+}
+
+#welcomeUser a{
+
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+
+}
+
+#welcomeUser a:hover{
+
+    color:#777;
+
+}
 

@@ -19,61 +19,42 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
-        <div class="container">
+  <header>
 
-            <a class="navbar-brand fw-bold fs-3" href="#">
-                ZURI
-            </a>
+    <div class="logo">
+        <h2>ZURI</h2>
+    </div>
 
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
 
-                <ul class="navbar-nav mx-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Products</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-
-                </ul>
-
-                <div class="d-flex gap-3">
-
-                    <a href="wishlist.html"
-                       class="text-dark text-decoration-none fw-semibold">
-                        ♡ <span id="wishCount">0</span>
-                    </a>
-
-                    <a href="cart.html"
-                       class="text-dark text-decoration-none fw-semibold">
-                        🛒 <span id="cartCount">0</span>
-                    </a>
-<a><a href="#" onclick="logout()">Logout</a></a>
-                </div>
-
-            </div>
-
-        </div>
     </nav>
+
+    <div class="icons">
+
+        <input type="text" id="search" placeholder="Search...">
+
+        <span id="welcomeUser"></span>
+
+        <a href="wishlist.html">
+            ♡ <span id="wishCount">0</span>
+        </a>
+
+        <a href="cart.html">
+            🛒 <span id="cartCount">0</span>
+        </a>
+
+        <a href="#" onclick="logout()">
+            Logout
+        </a>
+
+    </div>
+
+</header>
 
     <!-- HERO -->
     <section class="hero">

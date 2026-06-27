@@ -299,3 +299,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+document.addEventListener("DOMContentLoaded", function () {
+
+    updateCounters();
+
+    let user = JSON.parse(localStorage.getItem("user"));
+    let loggedIn = localStorage.getItem("loggedIn");
+    let welcome = document.getElementById("welcomeUser");
+
+    if (welcome) {
+
+        if (loggedIn === "true" && user) {
+
+            welcome.innerHTML = "Hi, " + user.name;
+
+        } else {
+
+            welcome.innerHTML =
+                '<a href="login.html">Login</a> | <a href="signup.html">Sign Up</a>';
+
+        }
+
+    }
+
+});
