@@ -528,4 +528,33 @@ color:#aaa;
     color:#777;
 
 }
+/* PRODUCT SEARCH */
+
+.product-search{
+
+    display:flex;
+    justify-content:center;
+    margin:30px 0;
+
+}
+
+.product-search input{
+
+    width:400px;
+    max-width:90%;
+    padding:14px 18px;
+    border:1px solid #ddd;
+    border-radius:30px;
+    outline:none;
+    font-size:16px;
+    transition:.3s;
+
+}
+
+.product-search input:focus{
+
+    border-color:#111;
+    box-shadow:0 0 8px rgba(0,0,0,.15);
+
+}
 
