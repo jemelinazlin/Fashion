@@ -323,11 +323,58 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
-let logout = document.getElementById("logoutLink");
+document.addEventListener("DOMContentLoaded", function () {
 
-if(logout){
+    let logout = document.getElementById("logoutLink");
 
-    logout.style.display =
-        loggedIn === "true" ? "inline" : "none";
+    if (logout) {
+
+        let loggedIn = localStorage.getItem("loggedIn");
+
+        logout.style.display =
+            loggedIn === "true" ? "inline" : "none";
+
+    }
+
+});
+// Load saved theme
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (localStorage.getItem("theme") === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        let btn = document.getElementById("darkModeBtn");
+
+        if (btn) {
+            btn.innerHTML = "☀️";
+        }
+    }
+
+});
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark-mode");
+
+    let btn = document.getElementById("darkModeBtn");
+
+    if (document.body.classList.contains("dark-mode")) {
+
+        localStorage.setItem("theme", "dark");
+
+        if (btn) {
+            btn.innerHTML = "☀️";
+        }
+
+    } else {
+
+        localStorage.setItem("theme", "light");
+
+        if (btn) {
+            btn.innerHTML = "🌙";
+        }
+
+    }
 
 }
