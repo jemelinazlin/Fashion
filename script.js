@@ -323,3 +323,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+let logout = document.getElementById("logoutLink");
+
+if(logout){
+
+    logout.style.display =
+        loggedIn === "true" ? "inline" : "none";
+
+}
