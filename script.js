@@ -212,7 +212,11 @@ function checkout() {
         return;
     }
 
-    alert("Order placed successfully! Thank you for shopping with ZURI.");
+  showAlert(
+    "Order Confirmed!",
+    "Thank you for shopping with ZURI.",
+    "success"
+);
 
     localStorage.removeItem("cart");
 
@@ -232,7 +236,11 @@ function clearWishlist() {
 }
 
 function sendMessage() {
-    alert("Thank you for contacting ZURI! We will get back to you soon.");
+showAlert(
+    "Message Sent!",
+    "Thank you for contacting ZURI. We will get back to you soon.",
+    "success"
+);
 
 }
 
@@ -245,8 +253,7 @@ function login() {
     let user = JSON.parse(localStorage.getItem("user"));
 
     if (!user) {
-
-        alert("No account found. Please sign up first.");
+showAlert("Login Failed", "Invalid email or password.", "error");
 
         window.location.href = "signup.html";
 
@@ -258,8 +265,7 @@ function login() {
 
         localStorage.setItem("loggedIn", "true");
 
-        alert("Login successful!");
-
+        showAlert("Welcome Back!", "Login successful.", "success");
         window.location.href = "cart.html";
 
     } else {
@@ -293,7 +299,14 @@ function signup() {
 
     localStorage.setItem("user", JSON.stringify(user));
 
-    alert("Account created successfully!");
+Swal.fire({
+    title: "Welcome Back!",
+    text: "Login successful.",
+    icon: "success",
+    confirmButtonColor: "#000"
+}).then(() => {
+    window.location.href = "cart.html";
+});
 
     window.location.href = "login.html";
 
@@ -398,7 +411,7 @@ function logout() {
 
     if (welcome) {
         welcome.innerHTML =
-        '<a href="login.html">Login</a> | <a href="signup.html">Sign Up</a>';
+            '<a href="login.html">Login</a> | <a href="signup.html">Sign Up</a>';
     }
 
     let logoutBtn = document.getElementById("logoutLink");
@@ -409,7 +422,13 @@ function logout() {
 
     updateCounters();
 
-    alert("You have been logged out successfully.");
+    Swal.fire({
+        title: "Logged Out",
+        text: "You have been logged out successfully.",
+        icon: "success",
+        confirmButtonColor: "#000"
+    }).then(() => {
+        window.location.href = "index.html";
+    });
 
-    window.location.href = "index.html";
 }
