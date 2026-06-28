@@ -81,7 +81,7 @@ console.log(name, price, image);
 
    showAlert(
     "Added to Cart!",
-    "Item moved to your cart.",
+    name + " moved to your cart.",
     "success"
     );
 }
@@ -288,71 +288,146 @@ showAlert(
 function login() {
 
     let email = document.getElementById("email").value.trim();
-
     let password = document.getElementById("password").value;
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        showAlert(
+            "Invalid Email",
+            "Please enter a valid email address.",
+            "error"
+        );
+        return;
+    }
+
+    if (password === "") {
+        showAlert(
+            "Password Required",
+            "Please enter your password.",
+            "warning"
+        );
+        return;
+    }
 
     let user = JSON.parse(localStorage.getItem("user"));
 
     if (!user) {
-showAlert("Login Failed", "Invalid email or password.", "error");
-
-        window.location.href = "signup.html";
-
+        showAlert(
+            "No Account Found",
+            "Please sign up first.",
+            "error"
+        ).then(() => {
+            window.location.href = "signup.html";
+        });
         return;
-
     }
 
     if (email === user.email && password === user.password) {
 
         localStorage.setItem("loggedIn", "true");
 
-        showAlert("Welcome Back!", "Login successful.", "success");
-        window.location.href = "cart.html";
+        Swal.fire({
+            icon: "success",
+            title: "Welcome Back!",
+            text: "Login successful.",
+            confirmButtonColor: "#000"
+        }).then(() => {
+            window.location.href = "cart.html";
+        });
 
     } else {
 
         showAlert(
-    "Login Failed",
-    "Invalid email or password.",
-    "error"
-);
-    }
+            "Login Failed",
+            "Incorrect email or password.",
+            "error"
+        );
 
+    }
 }
 function signup() {
 
     let name = document.getElementById("name").value.trim();
-
     let email = document.getElementById("email").value.trim();
-
     let password = document.getElementById("password").value;
 
-    if (name === "" || email === "" || password === "") {
-
-        showAlert("Please fill in all fields.");
-
+    // Name
+    if (name === "") {
+        showAlert("Invalid Name", "Please enter your full name.", "warning");
         return;
+    }
 
+    // Email format
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        showAlert(
+            "Invalid Email",
+            "Please enter a valid email address (example@gmail.com).",
+            "error"
+        );
+        return;
+    }
+
+    // Password length
+    if (password.length < 8) {
+        showAlert(
+            "Weak Password",
+            "Password must contain at least 8 characters.",
+            "warning"
+        );
+        return;
+    }
+
+    // Uppercase
+    if (!/[A-Z]/.test(password)) {
+        showAlert(
+            "Weak Password",
+            "Password must contain at least one uppercase letter.",
+            "warning"
+        );
+        return;
+    }
+
+    // Lowercase
+    if (!/[a-z]/.test(password)) {
+        showAlert(
+            "Weak Password",
+            "Password must contain at least one lowercase letter.",
+            "warning"
+        );
+        return;
+    }
+
+    // Number
+    if (!/[0-9]/.test(password)) {
+        showAlert(
+            "Weak Password",
+            "Password must contain at least one number.",
+            "warning"
+        );
+        return;
     }
 
     let user = {
-        name: name,
-        email: email,
-        password: password
+        name,
+        email,
+        password
     };
 
     localStorage.setItem("user", JSON.stringify(user));
 
-Swal.fire({
-    title: "Account Created!",
-    text: "Your account has been created successfully.",
-    icon: "success",
-    confirmButtonColor: "#000"
-}).then(() => {
-    window.location.href = "login.html";
-});
-
+    Swal.fire({
+        icon: "success",
+        title: "Account Created!",
+        text: "Your account has been created successfully.",
+        confirmButtonColor: "#000"
+    }).then(() => {
+        window.location.href = "login.html";
+    });
 }
+
 document.addEventListener("DOMContentLoaded", function () {
 
     let user = JSON.parse(localStorage.getItem("user"));
@@ -490,12 +565,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let product = JSON.parse(localStorage.getItem("selectedProduct"));
 
-    if (product && document.getElementById("productImage")) {
+    if (!product) return;
 
-        document.getElementById("productImage").src = product.image;
-        document.getElementById("productName").innerHTML = product.name;
-        document.getElementById("productPrice").innerHTML = "$" + product.price;
+    document.getElementById("productImage").src = product.image;
+    document.getElementById("productName").innerHTML = product.name;
+    document.getElementById("productPrice").innerHTML = "$" + product.price;
 
-    }
+    // Add to Cart
+    document.getElementById("cartBtn").addEventListener("click", function () {
+        addCart(product.name, product.price, product.image);
+    });
+
+    // Add to Wishlist
+    document.getElementById("wishBtn").addEventListener("click", function () {
+        addWish(product.name, product.price, product.image);
+    });
 
 });

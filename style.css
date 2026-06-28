@@ -755,3 +755,130 @@ body.dark-mode button:hover{
 .dark-mode .map-section p{
     color:#ddd;
 }
+/* PRODUCT DETAILS PAGE */
+.product-details {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 40px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.product-details img {
+    width: 420px;
+    max-width: 100%;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.product-details img:hover {
+    transform: scale(1.03);
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.product-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    margin: 20px 0;
+}
+
+.product-info p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.product-info button {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 12px;
+    transition: .3s;
+}
+
+.product-info button:first-of-type {
+    background: #000;
+    color: white;
+}
+
+.product-info button:first-of-type:hover {
+    background: #333;
+    transform: translateY(-3px);
+}
+
+.product-info button:last-of-type {
+    background: white;
+    color: black;
+    border: 2px solid black;
+}
+
+.product-info button:last-of-type:hover {
+    background: black;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.product-rating {
+    color: gold;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin: 30px;
+    padding: 12px 24px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: .3s;
+}
+
+.back-btn:hover {
+    background: #444;
+}
+
+/* Responsive */
+@media (max-width:768px){
+
+.product-details{
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+}
+
+.product-details img{
+    width:300px;
+}
+
+.product-info h1{
+    font-size:2rem;
+}
+
+.product-price{
+    font-size:1.6rem;
+}
+
+.product-info button{
+    width:100%;
+    margin:10px 0;
+}
+
+}

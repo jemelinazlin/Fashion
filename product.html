@@ -1,31 +1,182 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Product Details | ZURI</title>
+
+    <title>Product Details | ZURI Clothing</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
 <header>
-    <h2>ZURI Clothing</h2>
+
+<div class="logo">
+<h2>ZURI</h2>
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
+<a href="#"
+   id="logoutLink"
+   onclick="logout()"
+   style="display:none;">
+    Logout
+</a>
+
+</nav>
+
+<div class="icons">
+
+<button id="darkModeBtn" onclick="toggleDarkMode()">
+    🌙
+</button>
+
+<a href="wishlist.html">
+♡ <span id="wishCount">0</span>
+</a>
+
+<a href="cart.html">
+🛒 <span id="cartCount">0</span>
+</a>
+
+</div>
+
 </header>
 
-<section class="product-detail">
 
-    <img id="productImage" width="350">
+<a href="products.html" class="back-btn">
+← Back to Products
+</a>
 
-    <h1 id="productName"></h1>
 
-    <h2 id="productPrice"></h2>
+<section class="product-details">
 
-    <button onclick="history.back()">
-        ← Back to Products
-    </button>
+    <img id="productImage" alt="Product">
+
+    <div class="product-info">
+
+        <h1 id="productName"></h1>
+
+        <div class="product-rating">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <h2 class="product-price" id="productPrice"></h2>
+
+        <p>
+            Premium quality clothing made from comfortable,
+            durable materials. Perfect for everyday wear while
+            keeping you stylish and confident.
+        </p>
+
+        <button id="cartBtn">
+            <i class="fas fa-cart-shopping"></i>
+            Add to Cart
+        </button>
+
+        <button id="wishBtn">
+            <i class="far fa-heart"></i>
+            Add to Wishlist
+        </button>
+
+    </div>
 
 </section>
 
+
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-section">
+
+<h3>ZURI</h3>
+
+<p>
+Fashion for everyone. Discover quality, style, and confidence with every purchase.
+</p>
+
+</div>
+
+<div class="footer-section">
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a><br>
+
+<a href="products.html">Products</a><br>
+
+<a href="about.html">About</a><br>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div class="footer-section">
+
+<h3>Customer Care</h3>
+
+<a href="cart.html">Shopping Cart</a><br>
+
+<a href="wishlist.html">Wishlist</a><br>
+
+<a href="login.html">Login</a><br>
+
+<a href="signup.html">Sign Up</a>
+
+</div>
+
+<div class="footer-section">
+
+<h3>Follow Us</h3>
+
+<a href="https://www.instagram.com/" target="_blank">
+<i class="fab fa-instagram"></i> Instagram
+</a><br>
+
+<a href="https://www.facebook.com/" target="_blank">
+<i class="fab fa-facebook"></i> Facebook
+</a><br>
+
+<a href="https://www.tiktok.com/" target="_blank">
+<i class="fab fa-tiktok"></i> TikTok
+</a><br>
+
+<a href="https://x.com/" target="_blank">
+<i class="fab fa-x-twitter"></i> X (Twitter)
+</a>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 ZURI Clothing. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="script.js"></script>
 
 </body>
+
 </html>
