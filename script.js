@@ -45,9 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
             let email = emailInput.value.trim();
 
             if (email === "") {
-                alert("Please enter your email.");
+                showAlert("Please enter your email.");
             } else {
-                alert("Thank you for subscribing!");
+                showAlert("Thank you for subscribing!");
             }
         });
     }
@@ -217,7 +217,7 @@ function wishToCart(index) {
 
     updateCounters();
 
-    alert("Added to cart!");
+    showAlert("Added to cart!");
 }
 
 // COUNTERS
@@ -241,7 +241,7 @@ function checkout() {
 
     if (localStorage.getItem("loggedIn") !== "true") {
 
-        alert("Please login before proceeding to checkout.");
+        showAlert("Please login before proceeding to checkout.");
         window.location.href = "login.html";
         return;
     }
@@ -329,7 +329,7 @@ function signup() {
 
     if (name === "" || email === "" || password === "") {
 
-        alert("Please fill in all fields.");
+        showAlert("Please fill in all fields.");
 
         return;
 
