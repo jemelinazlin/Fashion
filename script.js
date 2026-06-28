@@ -473,4 +473,29 @@ function logout() {
         window.location.href = "index.html";
     });
 
+
 }
+function viewProduct(name, price, image) {
+
+    localStorage.setItem("selectedProduct", JSON.stringify({
+        name: name,
+        price: price,
+        image: image
+    }));
+
+    window.location.href = "product.html";
+
+}
+document.addEventListener("DOMContentLoaded", function () {
+
+    let product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+    if (product && document.getElementById("productImage")) {
+
+        document.getElementById("productImage").src = product.image;
+        document.getElementById("productName").innerHTML = product.name;
+        document.getElementById("productPrice").innerHTML = "$" + product.price;
+
+    }
+
+});
