@@ -259,7 +259,6 @@ function continueShopping() {
 function checkout() {
 
     if (localStorage.getItem("loggedIn") !== "true") {
-
         showAlert("Please login before proceeding to checkout.");
         window.location.href = "login.html";
         return;
@@ -272,17 +271,18 @@ function checkout() {
         return;
     }
 
-  showAlert(
-    "Order Confirmed!",
-    "Thank you for shopping with ZURI.",
-    "success"
-);
+    Swal.fire({
+        title: "Order Confirmed!",
+        text: "Thank you for shopping with ZURI.",
+        icon: "success",
+        confirmButtonColor: "#000"
+    }).then(() => {
 
-    localStorage.removeItem("cart");
+        localStorage.removeItem("cart");
+        updateCounters();
 
-    updateCounters();
-
-    window.location.reload();
+        window.location.href = "index.html"; // better than reload
+    });
 }
 
 function clearCart() {
