@@ -81,197 +81,70 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     </section>
 
     <!-- CATEGORIES -->
-    <section class="container py-5">
+    <!-- CATEGORIES -->
+<section class="container py-5">
 
-        <h2 class="text-center mb-5">
-            Shop Categories
-        </h2>
+    <h2 class="text-center mb-5">
+        Shop by Category
+    </h2>
 
-        <div class="row g-4">
+    <div class="row g-4">
 
-            <div class="col-lg-3 col-md-6">
-    <div class="card shadow-sm">
-        <img src="images/men-category.jpg" class="card-img-top" alt="Men">
-        <div class="card-body text-center">
-            <h3>Men</h3>
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow-sm text-center p-4 category-card"
+                 onclick="window.location.href='products.html'">
+
+                <h1>👔</h1>
+
+                <h4>Men</h4>
+
+                <p class="text-muted">5 Products</p>
+
+            </div>
         </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow-sm text-center p-4 category-card"
+                 onclick="window.location.href='products.html'">
+
+                <h1>👗</h1>
+
+                <h4>Women</h4>
+
+                <p class="text-muted">4 Products</p>
+
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow-sm text-center p-4 category-card"
+                 onclick="window.location.href='products.html'">
+
+                <h1>👟</h1>
+
+                <h4>Shoes</h4>
+
+                <p class="text-muted">8 Products</p>
+
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow-sm text-center p-4 category-card"
+                 onclick="window.location.href='products.html'">
+
+                <h1>🧥</h1>
+
+                <h4>Hoodies</h4>
+
+                <p class="text-muted">3 Products</p>
+
+            </div>
+        </div>
+
     </div>
-            </div>
 
-           <div class="col-lg-3 col-md-6">
-    <div class="card shadow-sm">
-        <img src="images/women-category.jpg" class="card-img-top" alt="Women">
-        <div class="card-body text-center">
-            <h3>Women</h3>
-        </div>
-    </div>
-</div>
-
-          <div class="col-lg-3 col-md-6">
-    <div class="card shadow-sm">
-        <img src="images/hoodies-category.jpg" class="card-img-top" alt="Hoodies">
-        <div class="card-body text-center">
-            <h3>Hoodies</h3>
-        </div>
-    </div>
-</div>
-
-           <div class="col-lg-3 col-md-6">
-    <div class="card shadow-sm">
-        <img src="images/shoes-category.jpg" class="card-img-top" alt="Shoes">
-        <div class="card-body text-center">
-            <h3>Shoes</h3>
-        </div>
-    </div>
-</div>
-        </div>
-
-    </section>
-
-    <!-- PRODUCTS -->
-    <section class="container py-5">
-
-        <h2 class="text-center mb-5">
-            New Arrivals
-        </h2>
-
-        <div class="row g-4">
-
-            <!-- PRODUCT 1 -->
-            <div class="col-lg-3 col-md-6">
-
-                <div class="card h-100 shadow-sm">
-
-                    <img src="images/black-hoodie.jpg"
-     class="card-img-top"
-     alt="Black Hoodie">
-
-                    <div class="card-body text-center">
-
-                        <span class="badge bg-danger mb-2">
-                            SALE
-                        </span>
-
-                        <h5>Black Hoodie</h5>
-
-                        <p class="fw-bold">$35</p>
-
-                        <button class="btn btn-dark w-100 mb-2"
-                                onclick="addCart('Black Hoodie',35)">
-                            Add to Cart
-                        </button>
-
-                        <button class="btn btn-outline-dark w-100"
-                                onclick="addWish('Black Hoodie',35)">
-                            ♡ Wishlist
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- PRODUCT 2 -->
-            <div class="col-lg-3 col-md-6">
-
-                <div class="card h-100 shadow-sm">
-
-                   <img src="images/white-tshirt.jpg"
-     class="card-img-top"
-     alt="White T-Shirt">
-
-                    <div class="card-body text-center">
-
-                        <span class="badge bg-danger mb-2">
-                            SALE
-                        </span>
-
-                        <h5>White T-Shirt</h5>
-
-                        <p class="fw-bold">$20</p>
-
-                        <button class="btn btn-dark w-100 mb-2"
-                                onclick="addCart('White T-Shirt',20)">
-                            Add to Cart
-                        </button>
-
-                        <button class="btn btn-outline-dark w-100"
-                                onclick="addWish('White T-Shirt',20)">
-                            ♡ Wishlist
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- PRODUCT 3 -->
-            <div class="col-lg-3 col-md-6">
-
-                <div class="card h-100 shadow-sm">
-
-                    <img src="images/cargo-pants.jpg"
-     class="card-img-top"
-     alt="Cargo Pants">
-
-                    <div class="card-body text-center">
-
-                        <h5>Cargo Pants</h5>
-
-                        <p class="fw-bold">$40</p>
-
-                        <button class="btn btn-dark w-100 mb-2"
-                                onclick="addCart('Cargo Pants',40)">
-                            Add to Cart
-                        </button>
-
-                        <button class="btn btn-outline-dark w-100"
-                                onclick="addWish('Cargo Pants',40)">
-                            ♡ Wishlist
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- PRODUCT 4 -->
-            <div class="col-lg-3 col-md-6">
-
-                <div class="card h-100 shadow-sm">
-
-                   <img src="images/black-cap.jpg"
-     class="card-img-top"
-     alt="Black Cap">
-
-                    <div class="card-body text-center">
-
-                        <h5>Cap</h5>
-
-                        <p class="fw-bold">$15</p>
-
-                        <button class="btn btn-dark w-100 mb-2"
-                                onclick="addCart('Cap',15)">
-                            Add to Cart
-                        </button>
-
-                        <button class="btn btn-outline-dark w-100"
-                                onclick="addWish('Cap',15)">
-                            ♡ Wishlist
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
+</section>
 
     <!-- FEATURES -->
     <section class="container py-5">
