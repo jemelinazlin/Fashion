@@ -47,7 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (email === "") {
                 showAlert("Please enter your email.");
             } else {
-                showAlert("Thank you for subscribing!");
+                showAlert(
+    "Subscribed!",
+    "Thank you for subscribing to ZURI.",
+    "success"
+);
             }
         });
     }
@@ -59,14 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cards.forEach(function (card) {
         card.addEventListener("click", function () {
-            alert("Explore our " + card.innerText + " collection!");
+            showAlert(
+    "Category",
+    "Explore our " + card.innerText + " collection!",
+    "info"
+);
         });
     });
 });
 
 // ADD TO CART
 function addCart(name, price, image) {
-console.log(name, price, image); 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     cart.push({
@@ -127,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <div class="cart-details">
                 <h3>${item.name}</h3>
-                <p>$${item.price}</p>
+                <p>Ksh ${item.price}</p>
 
                 <button onclick="removeCart(${index})">
                     Remove
@@ -140,7 +147,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let totalBox = document.getElementById("total");
         if (totalBox) {
-            totalBox.innerHTML = "Total: $" + total;
+            totalBox.innerHTML =
+"Total: Ksh " + (total).toLocaleString();
         }
     }
 });
@@ -168,27 +176,38 @@ box.innerHTML = "";
 wish.forEach(function(item, index) {
 
     box.innerHTML += `
-    <div class="product">
+<div class="col-md-6 col-lg-4">
 
-        <img src="${item.image}" alt="${item.name}" class="cart-image">
+    <div class="card h-100 shadow-sm">
 
-        <div class="cart-details">
-            <h3>${item.name}</h3>
-            <p>$${item.price}</p>
+        <img src="${item.image}"
+             class="card-img-top"
+             alt="${item.name}">
 
-            <button onclick="wishToCart(${index})">
+        <div class="card-body text-center">
+
+            <h5 class="card-title">${item.name}</h5>
+
+            <p class="fw-bold">
+                Ksh ${(item.price).toLocaleString()}
+            </p>
+
+            <button class="btn btn-dark w-100 mb-2"
+                    onclick="wishToCart(${index})">
                 Add to Cart
             </button>
 
-            <button onclick="removeWishItem(${index})">
+            <button class="btn btn-outline-danger w-100"
+                    onclick="removeWishItem(${index})">
                 Remove
             </button>
 
         </div>
 
     </div>
-    `;
 
+</div>
+`;
 });
     }
 });
@@ -249,7 +268,7 @@ function checkout() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     if (cart.length === 0) {
-        alert("Your cart is empty.");
+        showAlert("Your cart is empty.");
         return;
     }
 
@@ -552,33 +571,58 @@ function logout() {
 }
 function viewProduct(name, price, image) {
 
-    localStorage.setItem("selectedProduct", JSON.stringify({
+    let product = {
         name: name,
         price: price,
         image: image
-    }));
+    };
+
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
 
     window.location.href = "product.html";
-
 }
+// PRODUCT DETAILS PAGE
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Only run on product.html
+    let productImage = document.getElementById("productImage");
+    let productName = document.getElementById("productName");
+    let productPrice = document.getElementById("productPrice");
+    let cartBtn = document.getElementById("cartBtn");
+    let wishBtn = document.getElementById("wishBtn");
+
+    // If this isn't product.html, stop
+    if (!productImage || !productName || !productPrice) {
+        return;
+    }
 
     let product = JSON.parse(localStorage.getItem("selectedProduct"));
 
-    if (!product) return;
+    if (!product) {
+        window.location.href = "products.html";
+        return;
+    }
 
-    document.getElementById("productImage").src = product.image;
-    document.getElementById("productName").innerHTML = product.name;
-    document.getElementById("productPrice").innerHTML = "$" + product.price;
+    // Display product information
+    productImage.src = product.image;
+    productImage.alt = product.name;
+
+    productName.innerHTML = product.name;
+    productPrice.innerHTML =
+"Ksh " + (product.price).toLocaleString();
 
     // Add to Cart
-    document.getElementById("cartBtn").addEventListener("click", function () {
-        addCart(product.name, product.price, product.image);
-    });
+    if (cartBtn) {
+        cartBtn.addEventListener("click", function () {
+            addCart(product.name, product.price, product.image);
+        });
+    }
 
     // Add to Wishlist
-    document.getElementById("wishBtn").addEventListener("click", function () {
-        addWish(product.name, product.price, product.image);
-    });
+    if (wishBtn) {
+        wishBtn.addEventListener("click", function () {
+            addWish(product.name, product.price, product.image);
+        });
+    }
 
 });
