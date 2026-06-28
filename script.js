@@ -65,29 +65,46 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ADD TO CART
-function addCart(name, price) {
+function addCart(name, price, image) {
+console.log(name, price, image); 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    cart.push({ name, price: Number(price) });
+    cart.push({
+        name: name,
+        price: Number(price),
+        image: image
+    });
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
     updateCounters();
 
-    showAlert("Added to Cart!", name + " has been added to your cart.", "success");
+   showAlert(
+    "Added to Cart!",
+    "Item moved to your cart.",
+    "success"
+    );
 }
 
 // ADD TO WISHLIST
-function addWish(name, price) {
+function addWish(name, price, image) {
     let wish = JSON.parse(localStorage.getItem("wish")) || [];
 
-    wish.push({ name, price: Number(price) });
+    wish.push({
+        name: name,
+        price: Number(price),
+        image: image
+    });
 
     localStorage.setItem("wish", JSON.stringify(wish));
 
     updateCounters();
 
-    showAlert("Added to Wishlist!", name + " has been added to your wishlist.", "success");
+    showAlert(
+        "Added to Wishlist!",
+        name + " has been added to your wishlist.",
+        "success"
+    );
 }
 
 // SHOW CART
@@ -100,17 +117,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         box.innerHTML = ""; // prevent duplication bug
 
-        cart.forEach(function (item, index) {
-            total += Number(item.price);
+            cart.forEach(function (item, index) {
+    total += Number(item.price);
 
-            box.innerHTML += `
-                <div class="product">
-                    <h3>${item.name}</h3>
-                    <p>$${item.price}</p>
-                    <button onclick="removeCart(${index})">Remove</button>
-                </div>
-            `;
-        });
+    box.innerHTML += `
+        <div class="product">
+
+            <img src="${item.image}" alt="${item.name}" class="cart-image">
+
+            <div class="cart-details">
+                <h3>${item.name}</h3>
+                <p>$${item.price}</p>
+
+                <button onclick="removeCart(${index})">
+                    Remove
+                </button>
+            </div>
+
+        </div>
+    `;
+});
 
         let totalBox = document.getElementById("total");
         if (totalBox) {
@@ -135,20 +161,35 @@ document.addEventListener("DOMContentLoaded", function () {
     let box = document.getElementById("wishItems");
 
     if (box) {
-        let wish = JSON.parse(localStorage.getItem("wish")) || [];
+       let wish = JSON.parse(localStorage.getItem("wish")) || [];
 
-        box.innerHTML = "";
+box.innerHTML = "";
 
-        wish.forEach(function (item, index) {
-            box.innerHTML += `
-                <div class="product">
-                    <h3>${item.name}</h3>
-                    <p>$${item.price}</p>
-                    <button onclick="wishToCart(${index})">Add to Cart</button>
-                    <button onclick="removeWishItem(${index})">Remove</button>
-                </div>
-            `;
-        });
+wish.forEach(function(item, index) {
+
+    box.innerHTML += `
+    <div class="product">
+
+        <img src="${item.image}" alt="${item.name}" class="cart-image">
+
+        <div class="cart-details">
+            <h3>${item.name}</h3>
+            <p>$${item.price}</p>
+
+            <button onclick="wishToCart(${index})">
+                Add to Cart
+            </button>
+
+            <button onclick="removeWishItem(${index})">
+                Remove
+            </button>
+
+        </div>
+
+    </div>
+    `;
+
+});
     }
 });
 
@@ -270,8 +311,11 @@ showAlert("Login Failed", "Invalid email or password.", "error");
 
     } else {
 
-        alert("Invalid email or password.");
-
+        showAlert(
+    "Login Failed",
+    "Invalid email or password.",
+    "error"
+);
     }
 
 }
@@ -300,15 +344,13 @@ function signup() {
     localStorage.setItem("user", JSON.stringify(user));
 
 Swal.fire({
-    title: "Welcome Back!",
-    text: "Login successful.",
+    title: "Account Created!",
+    text: "Your account has been created successfully.",
     icon: "success",
     confirmButtonColor: "#000"
 }).then(() => {
-    window.location.href = "cart.html";
-});
-
     window.location.href = "login.html";
+});
 
 }
 document.addEventListener("DOMContentLoaded", function () {
